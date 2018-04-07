@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+ <link rel="stylesheet" type="text/css" href="/stylesheets/login.css">
+ <link rel="stylesheet" type="text/css" href="/stylesheets/listing.css">
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+ <meta charset="utf-8">
+ <title></title>
+</head>
+<body>
+  <header>
+    <nav class="container-fluid navbar navbar-light bg-light">
+      <div class="link1 float-left">
+        <a href="/" class="navLinks">spacebrite</a>
+      </div>
+      <div class="right-container row ml-auto">
+        <div class="link2">
+            <a href="/auth/listings" class="navLinks">Listings</a>
+        </div>
+        <div class="/signup link3 ">
+          <a href="/auth/users/homepage" class="navLinks"> <%= user_name %> </a>
+        </div>
+        <div class="link4 ">
+          <a href="/logout" class="navLinks pull-right"> Logout</a>
+        </div>
+      </div>
+    </nav>
+    <div class="second-nav">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div>Parking</div>
+      <div>Storage</div>
+      <div>WorkSpace</div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div>MapView</div>
+
+    </div>
+  </header>
+ <div class="listing-container">
+   <div class="listing">
+     <div>
+       <img class="img" src="/images/house.jpg"></img>
+       <div class="cost">$24/HR</div>
+     </div>
+     <div class="details">
+       Seller: NOEL<br />
+       Size: 2x4 <br /><br />
+       <a href="">DETAILS</a>
+     </div>
+   </div>
+ </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/login.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=.9">
+  <title></title>
+</head>
+<body>
+  <% if(login || signup){ %>
+    <div class="overlay"></div>
+  <%}%>
+ <header>
+   <nav class="container-fluid navbar navbar-light bg-light">
+     <div class="link1 float-left">
+       <a href="/" class="navLinks">spacebrite</a>
+     </div>
+     <div class="right-container row ml-auto">
+       <div class="link2">
+         <% if(loggedIn){%>
+           <a href="/auth/listings" class="navLinks">Listings</a>
+         <% }else{%>
+           <a href="#" class="navLinks"></a>
+         <% }%>
+       </div>
+       <div class="/signup link3 ">
+           <% if(loggedIn){%>
+             <a href="#" class="navLinks">  <%= user_name %> </a>
+           <% }else{%>
+             <a href="/signup" class="navLinks">Signup </a>
+           <% }%>
+       </div>
+       <div class="link4 ">
+          <% if(loggedIn){%>
+            <a href="/logout" class="navLinks pull-right"> Logout</a>
+          <% }else{%>
+            <a href="/login" class="navLinks pull-right">Login</a>
+          <% }%>
+
+       </div>
+     </div>
+   </nav>
+ </header>
+
+ <% if(login){%>
+   <form class="login-container" action="/login" method="post">
+     <a href="/" class="exit">X</a>
+     <div class="value-inputs">
+       <h2>LOGIN</h2>
+       <input type="" name="email" value="" placeholder="example@example.com"><br>
+       <input type="" name="password" value="" placeholder="**********"><br>
+       <input type="submit" name="submit" value="LOGIN">
+     </div>
+     <a class="login-link" href="/signup">Signup</a>
+   </form>
+   <%}else if(signup){ %>
+     <form class="signup-container" action="/signup" method="post">
+       <a href="/" class="exit">X</a>
+       <div class="value-inputs">
+         <h2>SIGNUP</h2>
+         <input type="email" name="email" value="" placeholder="Email">
+         <input type="text" name="phone" value="" placeholder="Phone Number">
+         <input type="password" name="password" value="" placeholder="password">
+         <input type="text" name="street_address" value="" placeholder="Address">
+         <input type="password" name="confirm_password" value="" placeholder="Confirm Password">
+         <input type="text" name="city" value="" placeholder="City">
+         <input type="text" name="state" value="" placeholder="State">
+         <br />
+         <input class="submit-button" type="submit" name="submit" value="SIGNUP">
+       </div>
+       <a class="login-link" href="/login">Login</a>
+     </form>
+    <%} %>
+
+    <div class="container-fluid banner col-md-12">
+          <div class="row banner-row">
+            <div class="space-container col-md-3">
+              <h1>Rent any type of space with Spacebrite</h1>
+              <div>Storage space, parking space, work space, outer space. Ok, maybe not outer space.</div>
+              <form class=" storage-match" action="index.html" method="post">
+                  <br>
+                <label for="uLocation"><b>Where?</b></label>
+                  <br>
+                <input type="text" placeholder="Anywhere" name="" value="">
+                  <br>
+                <label style="margin-top: 5px;" for="Space-needed"><b>Space<b></label>
+                  <br>
+              <select class="space-select">
+                <option value="underOneMonth">6x6</option>
+                <option value="oneToThreeMonths">6x6 to 12x12</option>
+                <option value="threeToOneYear">12x12 or more</option>
+              </select>
+                  <br>
+                <input type="submit" class="btn " name="submit" value="search">
+              </form>
+            </div>
+          </div>
+        </div>
+      <div class="container"style="margin-top:32px;">
+        <div class="col-md-8">
+          <h4>Here are some of the highest rated storage units near you!</h4>
+        </div>
+      </div>
+</body>
+
+</html>
