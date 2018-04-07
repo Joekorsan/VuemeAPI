@@ -9,7 +9,7 @@ exports.up = function(knex, Promise) {
     table.string('google_image');
     table.string('email');
     table.string('password');
-    table.timestamps(true, true);
+    table.timestamps(true , true);
 
 
     })
