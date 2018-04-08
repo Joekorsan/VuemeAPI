@@ -4,6 +4,7 @@ var knex = require('../db/knex');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  console.log("hello")
   knex('users').select().then(users => res.json(users))
 });
 
