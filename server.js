@@ -13,19 +13,27 @@ let app = express();
 let server = require('http').Server(app);
 let io = require('socket.io')(server);
 
+
 server.listen(8080, function(){
   console.log("LISTENING ON PORT", 8080);
 })
 
+let conversation = [];
 
-io.on('connection', (client) => {
-  client.on('subscribeToTimer', (interval) => {
-    console.log('client is subscribing to timer with interval ', interval);
-    setInterval(() => {
-      client.emit('timer', new Date());
-    }, interval);
-  });
-});
+io.on('connection', socket => {
+  // console.log('new Client Connnected');
+
+  socket.on('send message', (message) => {
+    console.log('message received', message)
+    conversation = message.messageList.length ? [...conversation, message.message] : [message.message];
+    io.sockets.emit('new message', conversation);
+  })
+
+  socket.on('disconnect', ()=>{
+    console.log('User disconnected');
+
+  })
+})//end of io.on()
 
 app.use(logger("dev"));
 app.use(cors());
